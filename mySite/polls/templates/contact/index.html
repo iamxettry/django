@@ -1,0 +1,12 @@
+{% extends 'polls/index.html' %}
+ {% block title %}Contact Page{% endblock title%} 
+ {% block body %}
+ {{ msg }},{{aa}} 
+ { {% for i in li %}
+<h1>{{i}}</h1>
+{% endfor %} {% if ans %}
+<h1>{{num1}} is greater than {{num2}}</h1>
+{% else %}
+<h1>{{num2}} is greater than {{num1}}</h1>
+{% endif %} }
+ {% endblock body %}

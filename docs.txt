@@ -1,0 +1,65 @@
+//create virtual environment
+
+py -m venv virualEnvName
+
+//to activate
+virtualEnvName\Scripts\activate
+
+
+//install django
+
+   py -m pip install Django
+
+// Create a project
+  django-admin startproject projectName
+
+
+//migrate 
+ py manage.py migrate
+
+//admin login
+ py manage.py createsuperuser
+ 
+
+//run project
+    cd projectName
+    py manage.py runserver
+    py manage.py runserver 8080
+
+
+//Create App
+
+    py manage.py startapp appname
+
+
+//go to setting.py 
+inside INSTALLED_APPS
+add "appname"
+
+
+
+
+//in appname/views.py
+  from django.http import HttpResponse
+
+    def index(request):
+         return HttpResponse("Hello, world. You're at the polls index.")
+
+
+//create  appname/urls.py
+    from django.urls import path
+
+    from . import views
+
+    urlpatterns = [
+        path('polls/', views.index, name='index'),
+    ]
+
+//in mysite/urls
+    from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]
